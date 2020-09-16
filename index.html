@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculadora ROI</title>
+</head>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
+
+
+<body>
+
+	<div class="boxCalculadora">
+
+		<div class="row">
+			
+			<div class="col-md-12">
+				<h5 class="font-weight-bold d-flex"><span class="material-icons" style="padding-right: 10px"> calculate </span> Calculadora</h5>
+				<hr>
+			</div>
+
+		</div>
+
+		<div class="digitaveisFields"> 
+			<div class="row">
+
+				<div class="col-md-12">
+
+					<p class="font-italic">Levantamento gastos na execução do projeto</p>
+
+				</div>
+
+				<div class="col-md-6">
+					<label><b>(TP) Total de colaboradores nos processos</b> <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="Quantidade de pessoas que atuam nos processos para automatizar"> help </span></label>
+					<input type="number" id="tpval" min="0" class="form-control" placeholder="Digite aqui a quantidade de pessoas que atuam nos processos para automatizar">
+				</div>
+
+
+				<div class="col-md-6">
+
+					<label><b>(HD) Total de horas do processo por dia:</b> <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="Quantidade de horas gastas executando o processo por dia"> help </span></label>
+					<input type="number" id="hdval" min="0" class="form-control" placeholder="Digite a quantidade de horas gastas executando o processo por dia">
+
+				</div>
+
+				<div class="col-md-12">
+
+					<br>
+					<label><b>(CDP) Custo  do persona:</b> <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="Valor de cada executor do projeto"> help </span></label>
+					<input type="text" id="cdpval" class="form-control dinheiro" placeholder="Digite o valor de cada executor do projeto">
+
+				</div>
+
+				<div class="col-md-12">
+
+					<br>
+
+					<hr class="divisorCalculos">
+
+					<br>
+					<p class="font-italic">Projeto RPA</p>
+
+				</div>
+
+				<div class="col-md-12">
+
+					<label><b>(ID) Investimentos diretos: </b> <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="Possíveis investimentos  anual com plataformas, licenças, servidores, bancos e outros anual"> help </span></label>
+					<input id="idval" type="text" class="form-control dinheiro" placeholder="Digite os possíveis investimentos  anual com plataformas, licenças, servidores, bancos e outros anual">
+
+				</div>
+
+				<div class="col-md-6">
+
+					<br>
+					<label><b>(Imn) Investimento demais anos: </b> <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="Investimentos para manutenção para os próximos anos"> help </span></label>
+					<input id="imnval" type="text" class="form-control dinheiro" placeholder="Digite os investimentos para manutenção para os próximos anos">
+
+				</div>
+
+				<div class="col-md-6">
+
+					<br>
+					<label><b>(ii) Investimentos Indiretos: </b> <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="Horas empregadas no desenvolvimento no projeto, desde o mapeamento até a produção"> help </span></label>
+					<input id="iival" type="text" class="form-control dinheiro" placeholder="Digite as horas empregadas no desenvolvimento no projeto, desde o mapeamento até a produção">
+
+				</div>
+
+				<div class="col-md-6">
+
+					<br>
+					<label><b>(DA) Dias por ano: </b> <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="Quantidade de dias por ano - Padrão 365"> help </span></label>
+					<input id="daval" type="number" min="0" class="form-control" placeholder="Digite a quantidade de dias por ano - Padrão 365">
+
+				</div>
+
+				<div class="col-md-6">
+
+					<br>
+					<label><b>(HC) Horas capacidade: </b> <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="Horas que o robô pode rodar por dia- Padrão 24hrs"> help </span></label>
+					<input id="hcval" type="number" min="0" class="form-control" placeholder="Digite as horas que o robô pode rodar por dia- Padrão 24hrs">
+
+				</div>
+
+				<div class="col-md-12">
+					<br><br>
+					<button class="btn btn-success calcularBtn">Calcular</button>
+				</div>
+
+
+			</div>
+		</div>
+
+		<div class="resultadosCalculadora">
+
+			<div class="row">
+
+				<div class="col-md-12">
+					<button class="btn btn-success voltarBtn"><span class="material-icons"> keyboard_arrow_left </span> Voltar</button>
+					<br>
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="card">
+						<div class="card-body">
+							<span class="tituloResultado"><span class="material-icons"> receipt_long </span> (CTD) Custo  total dos personas <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="Valor aproximado dos custos direto + indiretos do persona"> help </span></span>
+
+							<p class="valorResultado" id="CTDvalue">R$ 20.000,00</p>
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="card">
+						<div class="card-body">
+							<span class="tituloResultado"><span class="material-icons"> receipt_long </span> (HM) Total de horas do processo mês <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="Média dos dias uteis do mês (22) * a quantidade de colaboradores"> help </span></span>
+
+							<p class="valorResultado" id="HMvalue">132</p>
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="card">
+						<div class="card-body">
+							<span class="tituloResultado"><span class="material-icons"> receipt_long </span> (HA) Total de horas do processo ANO <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="Total de horas processos  por mês  * 12 meses * a quantidade de colaboradores"> help </span></span>
+
+							<p class="valorResultado" id="HAvalue">1584</p>
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="card">
+						<div class="card-body">
+							<span class="tituloResultado"><span class="material-icons"> receipt_long </span> (CH) Custo Hora <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="(CTD/ 244)"> help </span></span>
+
+							<p class="valorResultado" id="CHvalue">R$ 81,97</p>
+
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="card">
+						<div class="card-body">
+							<span class="tituloResultado"><span class="material-icons"> receipt_long </span> (CM) Custo do processo MÊS <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="(CH * HM)"> help </span></span>
+
+							<p class="valorResultado" id="CMvalue">R$ 10.819,67</p>
+
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="card">
+						<div class="card-body">
+							<span class="tituloResultado"><span class="material-icons"> receipt_long </span> (CP) Custo do processo ANO <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="(CH * HA)"> help </span></span>
+
+							<p class="valorResultado" id="CPvalue">R$ 129.836,07</p>
+
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="card text-white bg-success">
+						<div class="card-body">
+							<span class="tituloResultado"><span class="material-icons"> receipt_long </span> (GP) Ganho previsto <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="Mesmo valor do CP , pois altera o executor do processo"> help </span></span>
+
+							<p class="valorResultado" id="GPvalue">R$ 129.836,07</p>
+
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="card">
+						<div class="card-body">
+							<span class="tituloResultado"><span class="material-icons"> receipt_long </span> (HID) Horas do investimentos diretos <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="(ID / DA) / HC   Proporcional considerando a capacidade que o robô pode rodar diarimente. - 24x7"> help </span></span>
+
+							<p class="valorResultado" id="HIDvalue">R$ 11,42</p>
+
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="card">
+						<div class="card-body">
+							<span class="tituloResultado"><span class="material-icons"> receipt_long </span> (IpD) Investimentos parciais diretos  <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="(HID * HÁ) Proporcional com a quantidade utilizado em 1 ano"> help </span></span>
+
+							<p class="valorResultado" id="ipdvalue">R$ 18.082,19</p>
+
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="card">
+						<div class="card-body">
+							<span class="tituloResultado"><span class="material-icons"> receipt_long </span> (HImn) Horas Investimento demais anos  <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="(Imn / DA) / HC   Proporcional considerando a capacidade que o robô pode rodar diarimente. - 24x7"> help </span></span>
+
+							<p class="valorResultado" id="HImnvalue">R$ 2,28</p>
+
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="card text-white bg-dark">
+						<div class="card-body">
+							<span class="tituloResultado"><span class="material-icons"> receipt_long </span> (IpDA) Investimentos parciais diretos demais anos <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="(HImn* HA) Proporcional com a quantidade utilizado demais anos"> help </span></span>
+
+							<p class="valorResultado" id="ipdavalue">R$ 3.616,44</p>
+
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="card text-white bg-dark">
+						<div class="card-body">
+							<span class="tituloResultado"><span class="material-icons"> receipt_long </span> (TI) Total de investimento <span class="material-icons icones" data-toggle="tooltip" data-placement="right" title="(ii + IpD) Total investido na automatização do projeto em questão + o proporcional dos investimentos diretos"> help </span></span>
+
+							<p class="valorResultado" id="TIvalue">R$ 68.082,19</p>
+
+						</div>
+					</div>
+					
+				</div>
+			</div>
+
+			<div class="row">
+				
+				<div class="col-md-12">
+					<hr style="border-style: dashed;">
+					<br>
+					<table class="table table-dark">
+						<thead>
+							<tr>
+								<th scope="col">Retorno sobre o Investimento do Projeto</th>
+								<th scope="col"><span id="1anovalue">91%</span> (1° Ano)</th>
+								<th scope="col"><span id="2anovalue">362%</span> (2° Ano)</th>
+								<th scope="col"><span id="3anovalue">517%</span> (3° Ano)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Capacidade utilizada do robô no Processo</td>
+								<td><span id="capacidade1">18%</span></td>
+								<td><span id="capacidade2">18%</span></td>
+								<td><span id="capacidade3">18%</span></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<br>
+					<h4 class="text-center">Retorno sobre o Investimento do Projeto</h4>
+					<canvas id="myChart" width="400" height="100"></canvas>
+
+				</div>
+
+			</div>
+		</div>
+		
+	</div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="js/jquery.maskMoney.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+
+</html>

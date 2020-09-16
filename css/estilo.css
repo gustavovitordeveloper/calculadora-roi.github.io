@@ -1,0 +1,73 @@
+body{
+	font-family: "Roboto";
+	background: #eee;
+}
+
+.boxCalculadora{
+	padding: 20px;
+	width: 80%;
+	margin: 0px auto;
+	box-shadow: 2px 3px 13px 7px #ececec;
+	margin-top: 2%;
+	border-radius: 10px;
+	background: white;
+	margin-bottom: 2%;
+}
+
+.boxCalculadora .calcularBtn{
+	min-width: 15%;
+	padding: 10px;
+}
+
+.boxCalculadora .font-italic{
+	font-style: italic;
+}
+
+.boxCalculadora .divisorCalculos{
+	border-style: dashed;
+}
+
+.boxCalculadora .icones{
+	font-size: 21px;
+	padding-left: 5px;
+	color: #f1c40f;
+}
+
+.tituloResultado{
+	font-weight: 100;
+	/*color: #343a40;*/
+	display: flex;
+}
+
+.tituloResultado .material-icons{
+	padding-right: 10px;
+}
+
+.valorResultado{
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	font-size: 22px;
+	color: #27ae60;
+	padding-top: 10px;
+	font-weight: 400;
+}
+
+.bg-success .valorResultado{
+	color: #333;
+}
+
+.resultadosCalculadora .col-md-4{
+	margin-bottom: 20px;
+}
+
+.voltarBtn{
+	/*min-width: 5%;*/
+	display: flex;
+}
+.voltarBtn .material-icons{
+	padding-right: 5px;
+}
+
+.resultadosCalculadora{
+	display: none;
+}
